@@ -7,7 +7,7 @@ node{
     def dockerImage = docker.build(dockerImageTag)
   }
   stage ('PushToDockerHub') {
-    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub'){
+    docker.withRegistry('https://registry.hub.docker.com', 'docker'){
       def dockerImage = docker.image(dockerImageTag)
       dockerImage.push()
     }
